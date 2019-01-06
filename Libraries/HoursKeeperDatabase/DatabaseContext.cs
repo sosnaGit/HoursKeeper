@@ -1,6 +1,10 @@
 ﻿using HoursKeeperDatabase.Models;
+using System;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.SQLite;
+using System.IO;
+using System.Reflection;
 
 namespace HoursKeeperDatabase
 {
@@ -9,15 +13,24 @@ namespace HoursKeeperDatabase
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<Project> Projects { get; set; }
 
-        public DatabaseContext()
+        public DatabaseContext() :
+            base(new SQLiteConnection()
+            {
+                ConnectionString = 
+                    new SQLiteConnectionStringBuilder()
+                    {
+                        DataSource = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "database.db"),
+                        ForeignKeys = true
+                    }.ConnectionString
+            }, true)
         {
-            // Turn off the Migrations, (NOT a code first Db)
             Database.SetInitializer<DatabaseContext>(null);
         }
-        
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -8,9 +8,9 @@ namespace HoursKeeperDatabase.Models
 
         public DateTime CreateDate { get; set; }
 
-        public DateTime Date { get; set; }
+        public virtual DateTime Date { get; set; }
 
-        public Project Project { get; set; }
+        public virtual Project Project { get; set; }
 
         public double SpentTime { get; set; }
 

@@ -15,5 +15,7 @@ namespace HoursKeeperDatabase.Repositories.Interfaces
         void AddSchedule(Schedule schedule);
 
         void DeleteSchedule(long id);
+
+        void SaveChanges();
     }
 }

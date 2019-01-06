@@ -13,5 +13,7 @@ namespace HoursKeeperDatabase.Repositories.Interfaces
         void AddProject(Project project);
 
         void DeleteProject(long id);
+
+        void SaveChanges();
     }
 }

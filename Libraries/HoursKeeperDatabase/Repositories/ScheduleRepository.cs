@@ -45,6 +45,11 @@ namespace HoursKeeperDatabase.Repositories
             return _context.Schedules.Where(x => x.Project == project);
         }
 
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
         #region IDisposable Support
         private bool disposedValue = false;
 

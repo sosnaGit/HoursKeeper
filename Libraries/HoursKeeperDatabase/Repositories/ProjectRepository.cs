@@ -18,6 +18,7 @@ namespace HoursKeeperDatabase.Repositories
         public void AddProject(Project project)
         {
             _context.Projects.Add(project);
+            _context.SaveChanges();
         }
 
         public void DeleteProject(long id)
@@ -39,7 +40,12 @@ namespace HoursKeeperDatabase.Repositories
         {
             return _context.Projects.FirstOrDefault(x => x.Id == id);
         }
-        
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
         #region IDisposable Support
         private bool disposedValue = false;
 
