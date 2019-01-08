@@ -6,8 +6,21 @@ using NUnit.Framework;
 namespace HoursKeeperTests
 {
     [TestFixture]
-    public class UnitTest1
+    public class ProjectRepositoryTests
     {
+        private DatabaseContext _context;
+
+        [SetUp]
+        public void Configure()
+        {
+            _context = new DatabaseContext();
+        }
+
+        [TearDown]
+        public void Cleanup()
+        {
+        }
+
         [Test]
         public void TestMethod1()
         {
@@ -23,6 +36,7 @@ namespace HoursKeeperTests
                 projectRepository.SaveChanges();
                 projectRepository.Dispose();
             }
+
             Assert.AreEqual(1, 1);
         }
     }
