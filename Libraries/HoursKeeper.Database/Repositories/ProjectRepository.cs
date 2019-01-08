@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using HoursKeeper.Database.Models;
 using HoursKeeper.Database.Repositories.Interfaces;
+using HoursKeeper.Common;
 
 namespace HoursKeeper.Database.Repositories
 {
@@ -25,7 +26,7 @@ namespace HoursKeeper.Database.Repositories
                 _context.SaveChanges();
             }
             else
-                throw new Exception("Project already exists");
+                throw new NotUniqueException("Project already exists");
         }
 
         public void DeleteProject(long id)
@@ -33,7 +34,7 @@ namespace HoursKeeper.Database.Repositories
             var project = GetProject(id);
 
             if (project == null)
-                throw new Exception($"Project with id {id} does not exist");
+                throw new EntityNotExistException($"Project with id {id} does not exist");
 
             _context.Projects.Remove(project);
         }

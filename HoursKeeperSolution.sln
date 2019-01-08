@@ -9,13 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoursKeeperLibrary", "Libra
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{66B60737-E21F-4EBF-9893-CFFE08852761}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoursKeeperDatabase", "Libraries\HoursKeeperDatabase\HoursKeeperDatabase.csproj", "{85163203-9EB7-4AB0-8698-909DA7B7FB5C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoursKeeperTests", "Tests\HoursKeeperTests\HoursKeeperTests.csproj", "{EC6ECE5D-DD4F-44BE-A6E7-BB4158A95581}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HoursKeeper.Database", "Libraries\HoursKeeper.Database\HoursKeeper.Database.csproj", "{63AD72BF-0A91-4B58-BBA6-A980C38BD275}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoursKeeper.Tests", "Tests\HoursKeeper.Tests\HoursKeeper.Tests.csproj", "{29B261A0-E64D-4BCF-A007-701023E60D53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoursKeeper.Common", "Libraries\HoursKeeper.Common\HoursKeeper.Common.csproj", "{4115B347-0C38-4451-8147-48695268E921}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,14 +25,6 @@ Global
 		{3DB089EB-3ABC-4DA8-BC14-AE68325541FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DB089EB-3ABC-4DA8-BC14-AE68325541FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DB089EB-3ABC-4DA8-BC14-AE68325541FA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{85163203-9EB7-4AB0-8698-909DA7B7FB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{85163203-9EB7-4AB0-8698-909DA7B7FB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{85163203-9EB7-4AB0-8698-909DA7B7FB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{85163203-9EB7-4AB0-8698-909DA7B7FB5C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC6ECE5D-DD4F-44BE-A6E7-BB4158A95581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC6ECE5D-DD4F-44BE-A6E7-BB4158A95581}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC6ECE5D-DD4F-44BE-A6E7-BB4158A95581}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC6ECE5D-DD4F-44BE-A6E7-BB4158A95581}.Release|Any CPU.Build.0 = Release|Any CPU
 		{63AD72BF-0A91-4B58-BBA6-A980C38BD275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{63AD72BF-0A91-4B58-BBA6-A980C38BD275}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63AD72BF-0A91-4B58-BBA6-A980C38BD275}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,16 +33,19 @@ Global
 		{29B261A0-E64D-4BCF-A007-701023E60D53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29B261A0-E64D-4BCF-A007-701023E60D53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29B261A0-E64D-4BCF-A007-701023E60D53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4115B347-0C38-4451-8147-48695268E921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4115B347-0C38-4451-8147-48695268E921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4115B347-0C38-4451-8147-48695268E921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4115B347-0C38-4451-8147-48695268E921}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3DB089EB-3ABC-4DA8-BC14-AE68325541FA} = {71555634-8686-42A0-AFE9-C440BB6931C7}
-		{85163203-9EB7-4AB0-8698-909DA7B7FB5C} = {71555634-8686-42A0-AFE9-C440BB6931C7}
-		{EC6ECE5D-DD4F-44BE-A6E7-BB4158A95581} = {66B60737-E21F-4EBF-9893-CFFE08852761}
 		{63AD72BF-0A91-4B58-BBA6-A980C38BD275} = {71555634-8686-42A0-AFE9-C440BB6931C7}
 		{29B261A0-E64D-4BCF-A007-701023E60D53} = {66B60737-E21F-4EBF-9893-CFFE08852761}
+		{4115B347-0C38-4451-8147-48695268E921} = {71555634-8686-42A0-AFE9-C440BB6931C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1B8C5879-FBCA-44F0-88EB-9E3F9736618B}

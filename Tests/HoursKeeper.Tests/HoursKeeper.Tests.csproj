@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\HoursKeeper.Common\HoursKeeper.Common.csproj" />
     <ProjectReference Include="..\..\Libraries\HoursKeeper.Database\HoursKeeper.Database.csproj" />
   </ItemGroup>
 

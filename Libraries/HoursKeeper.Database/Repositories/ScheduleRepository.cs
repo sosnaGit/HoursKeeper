@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using HoursKeeper.Database.Models;
 using HoursKeeper.Database.Repositories.Interfaces;
+using HoursKeeper.Common;
 
 namespace HoursKeeper.Database.Repositories
 {
@@ -25,7 +26,7 @@ namespace HoursKeeper.Database.Repositories
             var schedule = GetSchedule(id);
 
             if (schedule == null)
-                throw new Exception($"Schedule with id {id} does not exist");
+                throw new EntityNotExistException($"Schedule with id {id} does not exist");
 
             _context.Schedules.Remove(schedule);
         }
@@ -43,6 +44,19 @@ namespace HoursKeeper.Database.Repositories
         public IEnumerable<Schedule> GetSchedulesByProject(Project project)
         {
             return _context.Schedules.Where(x => x.Project == project);
+        }
+
+        public IEnumerable<Schedule> GetAllSchedules()
+        {
+            return _context.Schedules;
+        }
+
+        public long Count(Func<Schedule, bool> function = null)
+        {
+            if (function == null)
+                return _context.Schedules.Count();
+
+            return _context.Schedules.Count(function);
         }
 
         public void SaveChanges()

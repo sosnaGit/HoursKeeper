@@ -12,6 +12,10 @@ namespace HoursKeeper.Database.Repositories.Interfaces
 
         IEnumerable<Schedule> GetSchedulesByProject(Project project);
 
+        IEnumerable<Schedule> GetAllSchedules();
+
+        long Count(Func<Schedule, bool> function = null);
+
         void AddSchedule(Schedule schedule);
 
         void DeleteSchedule(long id);
