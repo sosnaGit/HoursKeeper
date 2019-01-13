@@ -2,7 +2,7 @@
 using HoursKeeper.Database;
 using Microsoft.EntityFrameworkCore;
 
-namespace HoursKeeper.Tests
+namespace HoursKeeper.Old.Tests
 {
     public abstract class BaseTestsClass
     {

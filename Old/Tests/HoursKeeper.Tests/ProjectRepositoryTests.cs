@@ -1,10 +1,10 @@
 using NUnit.Framework;
 using HoursKeeper.Database.Models;
 using HoursKeeper.Database.Repositories;
-using HoursKeeper.Common;
+using HoursKeeper.Old.Common;
 using System.Linq;
 
-namespace HoursKeeper.Tests
+namespace HoursKeeper.Old.Tests
 {
     [TestFixture]
     public class ProjectRepositoryTests : BaseTestsClass

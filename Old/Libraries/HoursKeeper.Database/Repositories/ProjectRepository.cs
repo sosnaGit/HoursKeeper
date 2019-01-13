@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using HoursKeeper.Database.Models;
 using HoursKeeper.Database.Repositories.Interfaces;
-using HoursKeeper.Common;
+using HoursKeeper.Old.Common;
 
 namespace HoursKeeper.Database.Repositories
 {

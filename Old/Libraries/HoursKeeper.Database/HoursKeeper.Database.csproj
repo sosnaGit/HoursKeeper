@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HoursKeeper.Common\HoursKeeper.Common.csproj" />
+    <ProjectReference Include="..\HoursKeeper.Common\HoursKeeper.Old.Common.csproj" />
   </ItemGroup>
 
 </Project>

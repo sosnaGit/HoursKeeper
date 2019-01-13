@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HoursKeeper.Common
+namespace HoursKeeper.Old.Common
 {
     public class NotUniqueException : Exception
     {
