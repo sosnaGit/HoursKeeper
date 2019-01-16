@@ -20,10 +20,7 @@ namespace Tests
                 .Options;
 
             var context = new DatabaseContext();
-            context.Database.EnsureCreated();
-
-            var container = new CommandsModule();
-            
+            context.Database.EnsureCreated();   
         }
     }
 }

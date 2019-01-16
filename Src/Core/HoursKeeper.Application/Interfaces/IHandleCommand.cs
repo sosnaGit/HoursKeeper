@@ -1,4 +1,6 @@
-﻿namespace HoursKeeper.Application.Interfaces
+﻿using HoursKeeper.Persistence;
+
+namespace HoursKeeper.Application.Interfaces
 {
     public interface IHandleCommand
     {
@@ -7,6 +9,6 @@
     public interface IHandleCommand<TCommand> : IHandleCommand
         where TCommand : ICommand
     {
-        void Handle(TCommand command);
+        void Handle(TCommand command, DatabaseContext context);
     }
 }

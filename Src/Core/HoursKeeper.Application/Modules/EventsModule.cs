@@ -1,6 +1,5 @@
-﻿using Autofac;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using Autofac;
 using HoursKeeper.Application.Buses;
 using HoursKeeper.Application.Interfaces;
 
@@ -12,26 +11,19 @@ namespace HoursKeeper.Application.Modules
         {
             base.Load(builder);
 
-            builder.RegisterAssemblyTypes(ThisAssembly)
-                .Where(x => x.IsAssignableTo<IHandleEvent>())
+            builder.RegisterType<CommandsBus>()
                 .AsImplementedInterfaces();
 
-            //builder.RegisterGeneric(typeof(AllEventsHandler<>))
-            //    .As(typeof(IHandleEvent<>));
-
-            builder.Register<Func<Type, IEnumerable<IHandleEvent>>>(c =>
+            builder.RegisterAssemblyTypes(ThisAssembly).Where(t => t.IsAssignableTo<IHandleEvent>()).AsImplementedInterfaces();
+            builder.Register<Func<Type, IHandleEvent>>(c =>
             {
-                var ctx = c.Resolve<IComponentContext>();
+                var context = c.Resolve<IComponentContext>();
                 return t =>
                 {
                     var handlerType = typeof(IHandleEvent<>).MakeGenericType(t);
-                    var handlersCollectionType = typeof(IEnumerable<>).MakeGenericType(handlerType);
-                    return (IEnumerable<IHandleEvent>)ctx.Resolve(handlersCollectionType);
+                    return (IHandleEvent)context.Resolve(handlerType);
                 };
             });
-
-            builder.RegisterType<EventsBus>()
-                .AsImplementedInterfaces();
         }
     }
 }

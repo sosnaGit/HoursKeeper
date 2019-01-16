@@ -4,4 +4,23 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Projects\Commands\DeleteProject\" />
+    <Folder Include="Projects\Commands\UpdateProject\" />
+    <Folder Include="Projects\Queries\" />
+    <Folder Include="Schedules\Commands\CreateSchedule\" />
+    <Folder Include="Schedules\Commands\DeleteSchedule\" />
+    <Folder Include="Schedules\Commands\UpdateSchedule\" />
+    <Folder Include="Schedules\Queries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
+    <PackageReference Include="FluentValidation" Version="8.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\HoursKeeper.Persistence\HoursKeeper.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

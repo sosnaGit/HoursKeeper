@@ -1,4 +1,5 @@
-﻿using HoursKeeper.Application.Interfaces;
+﻿using HoursKeeper.Application.Exceptions;
+using HoursKeeper.Application.Interfaces;
 using HoursKeeper.Domain.Entities;
 using HoursKeeper.Persistence;
 
@@ -6,20 +7,28 @@ namespace HoursKeeper.Application.Projects.Commands.CreateProject
 {
     public class CreateProjectCommandHandler : IHandleCommand<CreateProjectCommand>
     {
-        private DatabaseContext _context;
+        private CreateProjectValidator _validator;
 
-        public CreateProjectCommandHandler(DatabaseContext context)
+        public CreateProjectCommandHandler()
         {
-            _context = context;
+            _validator = new CreateProjectValidator();
         }
 
-        public void Handle(CreateProjectCommand command)
+        public void Handle(CreateProjectCommand command, DatabaseContext context)
         {
-            _context.Projects.Add(new Project
+            var result = _validator.Validate(command);
+
+            if (!result.IsValid)
+            {
+                throw new CustomValidationException(result.Errors);
+            }
+
+            context.Projects.Add(new Project
             {
                 Name = command.Name
             });
-            _context.SaveChanges();
+
+            context.SaveChanges();
         }
     }
 }

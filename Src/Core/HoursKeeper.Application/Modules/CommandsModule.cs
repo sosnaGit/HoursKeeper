@@ -11,23 +11,19 @@ namespace HoursKeeper.Application.Modules
         {
             base.Load(builder);
 
-            builder.RegisterAssemblyTypes(ThisAssembly)
-                .Where(x => x.IsAssignableTo<IHandleCommand>())
+            builder.RegisterType<CommandsBus>()
                 .AsImplementedInterfaces();
 
+            builder.RegisterAssemblyTypes(ThisAssembly).Where(t => t.IsAssignableTo<IHandleCommand>()).AsImplementedInterfaces();
             builder.Register<Func<Type, IHandleCommand>>(c =>
             {
-                var ctx = c.Resolve<IComponentContext>();
-
+                var context = c.Resolve<IComponentContext>();
                 return t =>
                 {
                     var handlerType = typeof(IHandleCommand<>).MakeGenericType(t);
-                    return (IHandleCommand)ctx.Resolve(handlerType);
+                    return (IHandleCommand)context.Resolve(handlerType);
                 };
             });
-
-            builder.RegisterType<CommandsBus>()
-                .AsImplementedInterfaces();
         }
     }
 }

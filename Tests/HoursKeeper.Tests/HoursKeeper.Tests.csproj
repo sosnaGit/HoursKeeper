@@ -7,9 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.1" />
     <PackageReference Include="nunit" Version="3.10.1" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Src\Core\HoursKeeper.Application\HoursKeeper.Application.csproj" />
+    <ProjectReference Include="..\..\Src\Core\HoursKeeper.Domain\HoursKeeper.Domain.csproj" />
+    <ProjectReference Include="..\..\Src\Infrastructure\HoursKeeper.Persistence\HoursKeeper.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
