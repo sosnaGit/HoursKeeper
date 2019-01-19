@@ -5,16 +5,16 @@ using HoursKeeper.Persistence;
 
 namespace HoursKeeper.Application.Projects.Commands.CreateProject
 {
-    public class CreateProjectCommandHandler : IHandleCommand<CreateProjectCommand>
+    public class CreateProjectHandler : IHandleCommand<CreateProjectCommand>
     {
-        private CreateProjectValidator _validator;
+        private readonly CreateProjectValidator _validator;
 
-        public CreateProjectCommandHandler()
+        public CreateProjectHandler()
         {
             _validator = new CreateProjectValidator();
         }
 
-        public void Handle(CreateProjectCommand command, DatabaseContext context)
+        public void Handle(CreateProjectCommand command, DatabaseContext context, bool shouldSaveChanges = false)
         {
             var result = _validator.Validate(command);
 
@@ -28,7 +28,8 @@ namespace HoursKeeper.Application.Projects.Commands.CreateProject
                 Name = command.Name
             });
 
-            context.SaveChanges();
+            if (shouldSaveChanges)
+                context.SaveChanges();
         }
     }
 }

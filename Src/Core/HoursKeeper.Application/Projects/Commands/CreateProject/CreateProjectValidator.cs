@@ -6,7 +6,7 @@ namespace HoursKeeper.Application.Projects.Commands.CreateProject
     {
         public CreateProjectValidator()
         {
-            RuleFor(x => x.Name).MinimumLength(3);
+            RuleFor(x => x.Name).NotEmpty();
         }
     }
 }
