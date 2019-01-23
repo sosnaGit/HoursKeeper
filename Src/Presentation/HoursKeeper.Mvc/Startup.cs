@@ -1,7 +1,5 @@
 ﻿using Autofac;
-using FluentValidation.AspNetCore;
 using HoursKeeper.Application.Modules;
-using HoursKeeper.Application.Projects.Commands.CreateProject;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -39,6 +37,7 @@ namespace HoursKeeper.Mvc
 
         public void ConfigureContainer(ContainerBuilder builder)
         {
+            builder.RegisterModule(new QueriesModule());
             builder.RegisterModule(new CommandsModule());
         }
 

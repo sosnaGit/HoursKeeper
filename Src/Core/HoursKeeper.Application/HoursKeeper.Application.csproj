@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Projects\Queries\" />
     <Folder Include="Schedules\Queries\" />
   </ItemGroup>
 

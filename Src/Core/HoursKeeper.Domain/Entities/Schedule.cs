@@ -1,8 +1,9 @@
-﻿using System;
+﻿using HoursKeeper.Domain.Interfaces;
+using System;
 
 namespace HoursKeeper.Domain.Entities
 {
-    public class Schedule
+    public class Schedule : IEntity
     {
         public int Id { get; set; }
 
