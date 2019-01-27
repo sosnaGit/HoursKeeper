@@ -15,7 +15,7 @@ namespace HoursKeeper.Application.Projects.Queries.GetProject
             _validator = new GetProjectValidator();
         }
 
-        public Project Handle(GetProjectQuery query, DatabaseContext context, bool isRequired = false)
+        public Project Handle(GetProjectQuery query, DatabaseContext context, bool isRequired = true)
         {
             var validationResult = _validator.Validate(query);
 

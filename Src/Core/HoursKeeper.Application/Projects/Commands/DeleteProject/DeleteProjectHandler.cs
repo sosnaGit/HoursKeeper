@@ -15,7 +15,7 @@ namespace HoursKeeper.Application.Projects.Commands.DeleteProject
             _validator = new DeleteProjectValidator();
         }
 
-        public void Handle(DeleteProjectCommand command, DatabaseContext context, bool shouldSaveChanges)
+        public void Handle(DeleteProjectCommand command, DatabaseContext context, bool shouldSaveChanges = true)
         {
             var result = _validator.Validate(command);
 

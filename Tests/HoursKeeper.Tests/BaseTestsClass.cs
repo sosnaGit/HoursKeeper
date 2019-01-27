@@ -12,10 +12,10 @@ namespace HoursKeeper.Tests
         public virtual void Configure()
         {
             var options = new DbContextOptionsBuilder<DatabaseContext>()
-                .UseInMemoryDatabase(databaseName: "database")
+                .UseInMemoryDatabase(databaseName: "db")
                 .Options;
 
-            _context = new DatabaseContext();
+            _context = new DatabaseContext(options);
             _context.Database.EnsureCreated();
         }
 

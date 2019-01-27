@@ -11,6 +11,6 @@ namespace HoursKeeper.Application.Interfaces
         where TQuery : IQuery
         where TResult : IEntity
     {
-        TResult Handle(TQuery query, DatabaseContext context, bool isRequired = false);
+        TResult Handle(TQuery query, DatabaseContext context, bool isRequired = true);
     }
 }

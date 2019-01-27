@@ -15,7 +15,7 @@ namespace HoursKeeper.Old.Tests
                 .UseInMemoryDatabase(databaseName: "database")
                 .Options;
 
-            _context = new DatabaseContext();
+            _context = new DatabaseContext(options);
             _context.Database.EnsureCreated();
         }
 

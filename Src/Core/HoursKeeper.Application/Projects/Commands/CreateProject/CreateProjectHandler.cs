@@ -7,16 +7,11 @@ namespace HoursKeeper.Application.Projects.Commands.CreateProject
 {
     public class CreateProjectHandler : IHandleCommand<CreateProjectCommand>
     {
-        private readonly CreateProjectValidator _validator;
-
-        public CreateProjectHandler()
+        public void Handle(CreateProjectCommand command, DatabaseContext context, bool shouldSaveChanges = true)
         {
-            _validator = new CreateProjectValidator();
-        }
+            var validator = new CreateProjectValidator(context);
 
-        public void Handle(CreateProjectCommand command, DatabaseContext context, bool shouldSaveChanges = false)
-        {
-            var result = _validator.Validate(command);
+            var result = validator.Validate(command);
 
             if (!result.IsValid)
             {

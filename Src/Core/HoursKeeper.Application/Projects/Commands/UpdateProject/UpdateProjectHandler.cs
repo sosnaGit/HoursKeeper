@@ -15,7 +15,7 @@ namespace HoursKeeper.Application.Projects.Commands.UpdateProject
             _validator = new UpdateProjectValidator();
         }
 
-        public void Handle(UpdateProjectCommand command, DatabaseContext context, bool shouldSaveChanges = false)
+        public void Handle(UpdateProjectCommand command, DatabaseContext context, bool shouldSaveChanges = true)
         {
             var result = _validator.Validate(command);
 

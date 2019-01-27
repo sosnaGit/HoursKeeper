@@ -15,6 +15,7 @@ namespace HoursKeeper.Application.Buses
 
         public TResult Execute<TQuery, TResult>(TQuery query, DatabaseContext context, bool isRequired = false) 
             where TQuery : IQuery
+            where TResult : IEntity
         {
             Type[] typeArgs = { typeof(TQuery), typeof(TResult) };
 
